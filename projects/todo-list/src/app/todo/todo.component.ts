@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TodoItem } from '../todo-item'
+import { TaskRunnerService } from '../task-runner.service';
 
 @Component({
   selector: 'app-todo',
@@ -9,18 +10,17 @@ import { TodoItem } from '../todo-item'
 })
 export class TodoComponent implements OnInit {
 
-  todoItems: TodoItem[] = [
-    {task: "Walk the dog.", completed: false},
-    {task: "Go to the store.", completed: true},
-    {task: "Get gas.", completed: false},
-    {task: "Wash the car.", completed: false}
-  ]; 
+  todoItems: TodoItem[]
 
-  allComplete: boolean = this.todoItems.find(t => t.completed==false) == undefined
+  getTodoItems(): void {
+    this.taskRunnerService.getTodoItems().subscribe(tasks => this.todoItems = tasks)
+  }
+
+  allComplete: boolean
 
   complete(todoItem: TodoItem): void {
     this.todoItems.find(t => t == todoItem).completed = true;
-    this.allComplete = this.todoItems.find(t => t.completed==false) == undefined
+    this.allComplete = this.todoItems.find(t => t.completed !== true) == undefined
   }
 
   delete(todoItem: TodoItem): void {
@@ -34,9 +34,10 @@ export class TodoComponent implements OnInit {
     this.allComplete = false
   }
 
-  constructor() { }
+  constructor(private taskRunnerService: TaskRunnerService) { }
 
   ngOnInit() {
+    this.getTodoItems();
   }
 
 }
