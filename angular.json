@@ -526,6 +526,137 @@
           }
         }
       }
+    },
+    "mad-libs": {
+      "root": "projects/mad-libs/",
+      "sourceRoot": "projects/mad-libs/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mad-libs",
+            "index": "projects/mad-libs/src/index.html",
+            "main": "projects/mad-libs/src/main.ts",
+            "polyfills": "projects/mad-libs/src/polyfills.ts",
+            "tsConfig": "projects/mad-libs/tsconfig.app.json",
+            "assets": [
+              "projects/mad-libs/src/favicon.ico",
+              "projects/mad-libs/src/assets"
+            ],
+            "styles": [
+              "projects/mad-libs/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/mad-libs/src/environments/environment.ts",
+                  "with": "projects/mad-libs/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mad-libs:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mad-libs:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mad-libs:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mad-libs/src/test.ts",
+            "polyfills": "projects/mad-libs/src/polyfills.ts",
+            "tsConfig": "projects/mad-libs/tsconfig.spec.json",
+            "karmaConfig": "projects/mad-libs/karma.conf.js",
+            "styles": [
+              "projects/mad-libs/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/mad-libs/src/favicon.ico",
+              "projects/mad-libs/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mad-libs/tsconfig.app.json",
+              "projects/mad-libs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "mad-libs-e2e": {
+      "root": "projects/mad-libs-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/mad-libs-e2e/protractor.conf.js",
+            "devServerTarget": "mad-libs:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mad-libs:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/mad-libs-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "my-app"
