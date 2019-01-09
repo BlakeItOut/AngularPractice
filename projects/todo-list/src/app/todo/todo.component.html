@@ -1,10 +1,35 @@
 <h1>TODO List</h1>
 <p>A place to store the things you have to do!</p>
-<input placeholder="Filter your to-dos">
-<ol>
-  <li><button>Complete</button>Walk the dog</li>
-  <li class="complete">Go to the store.</li>
-  
+<input [(ngModel)]="searchText" placeholder="Filter your to-dos" class="form-control mb-3">
+<ol class="list-group">
+  <li *ngFor="let TodoItem of todoItems | filter : searchText; index as i" [ngClass]="TodoItem.completed ? 'complete' : ''" class="list-group-item">{{i+1}}. 
+    <button *ngIf="!TodoItem.completed" (click)="complete(TodoItem)" type="button" class="btn btn-sm btn-outline-success mr-2">Complete</button>{{TodoItem.task}}<button type="button" class="float-right close" title="delete task"
+    (click)="delete(TodoItem)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
 </ol>
-<input placeholder="Add your to do">
-<button>Add</button>
+<input #taskName (keyup.enter)="add(taskName.value); taskName.value=''"placeholder="Add your to do" class="form-control mt-3 mb-2">
+<button (click)="add(taskName.value); taskName.value=''" type="button" class="btn btn-success btn-block">Add</button>
+<div *ngIf="allComplete" class="conf-cont mt-4">
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+</div>

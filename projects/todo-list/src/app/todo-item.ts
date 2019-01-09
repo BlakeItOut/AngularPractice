@@ -1,4 +1,4 @@
 export class TodoItem {
     task: string;
-    completed: boolean;
+    completed: boolean = false;
 }
