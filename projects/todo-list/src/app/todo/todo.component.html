@@ -2,9 +2,9 @@
 <p>A place to store the things you have to do!</p>
 <input [(ngModel)]="searchText" placeholder="Filter your to-dos" class="form-control mb-3">
 <ol class="list-group">
-  <li *ngFor="let TodoItem of todoItems | filter : searchText; index as i" [ngClass]="TodoItem.completed ? 'complete' : ''" class="list-group-item">{{i+1}}. 
+  <li *ngFor="let TodoItem of todoItems | filter : searchText; index as i" [class.complete]="TodoItem.completed" class="list-group-item">{{i+1}}. 
     <button *ngIf="!TodoItem.completed" (click)="complete(TodoItem)" type="button" class="btn btn-sm btn-outline-success mr-2">Complete</button>
-    {{TodoItem.task}}
+    {{TodoItem.title}}
     <button type="button" class="float-right close" title="delete task"
     (click)="delete(TodoItem)">
       <span aria-hidden="true">&times;</span>

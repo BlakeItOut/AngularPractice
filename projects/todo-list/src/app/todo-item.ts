@@ -1,5 +1,6 @@
 export class TodoItem {
     id: number;
-    task: string;
+    title: string;
     completed: boolean = false;
+    userId: number = 1;
 }

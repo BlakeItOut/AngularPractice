@@ -3,6 +3,6 @@
         <input type="checkbox" class="form-check-input" id="completed" [(ngModel)]="todoItem.completed">
         <label class="form-check-label" for="completed">Completed</label>
       </div>
-    <input #taskName [(ngModel)]="todoItem.task" (keyup.enter)="save()"placeholder="Add your to do" class="form-control mt-3 mb-2">
+    <input #taskName [(ngModel)]="todoItem.title" (keyup.enter)="save()"placeholder="Add your to do" class="form-control mt-3 mb-2">
     <button (click)="save()" type="button" class="btn btn-success btn-block">Update</button>
 </div>
