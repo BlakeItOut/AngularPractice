@@ -19,7 +19,8 @@ export class TodoComponent implements OnInit {
   allComplete: boolean
 
   complete(todoItem: TodoItem): void {
-    this.todoItems.find(t => t == todoItem).completed = true;
+    this.taskRunnerService.completeTodoItem(todoItem).subscribe()
+    // this.todoItems.find(t => t == todoItem).completed = true;
     this.allComplete = this.todoItems.find(t => t.completed !== true) == undefined
   }
 
@@ -27,10 +28,17 @@ export class TodoComponent implements OnInit {
     this.todoItems = this.todoItems.filter(t => t !== todoItem);
   }
 
-  add(task: string): void {
-    task = task.trim();
-    if (!task) { return; }
-    this.todoItems.push({ task } as TodoItem )
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    var task: TodoItem = {
+      task: name,
+      completed: false
+    }
+    this.taskRunnerService.addTodoItem(task)
+      .subscribe(t => {
+        this.todoItems.push(t);
+      })
     this.allComplete = false
   }
 

@@ -8,14 +8,15 @@ import { TodoItem } from './todo-item';
 export class InMemoryDataService implements InMemoryDbService  {
   createDb() {
     const tasks = [
-      {task: "Walk the dog.", completed: false},
-      {task: "Go to the store.", completed: true},
-      {task: "Get gas.", completed: false},
-      {task: "Wash the car.", completed: false},
-      {task: "Extra thing to do", completed: false}
+      {id: 11, task: "Walk the dog.", completed: false},
+      {id: 12, task: "Go to the store.", completed: true},
+      {id: 13, task: "Get gas.", completed: false},
+      {id: 14, task: "Wash the car.", completed: false}
     ]; 
     return {tasks};
   }
 
-  constructor() { }
+  genId(tasks: TodoItem[]): number {
+    return tasks.length > 0 ? Math.max(...tasks.map(task => task.id)) + 1 : 11;
+  }
 }

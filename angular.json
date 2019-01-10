@@ -682,9 +682,7 @@
               "projects/todo-list/src/assets"
             ],
             "styles": [
-              "projects/todo-list/src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
-
+              "projects/todo-list/src/styles.scss"
             ],
             "scripts": []
           },

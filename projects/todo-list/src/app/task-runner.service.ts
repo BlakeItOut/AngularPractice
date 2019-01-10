@@ -14,7 +14,29 @@ const httpOptions = {
 export class TaskRunnerService {
   getTodoItems(): Observable<TodoItem[]>{
     return this.http.get<TodoItem[]>(this.tasksUrl).pipe(
-      catchError(this.handleError('getTasks', []))
+      catchError(this.handleError<TodoItem[]>('getTasks', []))
+    )
+  }
+
+  completeTodoItem(todoItem: TodoItem): Observable<any> {
+    todoItem.completed = true
+    return this.http.put(this.tasksUrl, todoItem, httpOptions).pipe(
+      catchError(this.handleError<TodoItem[]>('completeTask'))
+    )
+  }
+
+  addTodoItem (todoItem: TodoItem): Observable<TodoItem> {
+    return this.http.post<TodoItem>(this.tasksUrl, todoItem, httpOptions).pipe(
+      catchError(this.handleError<TodoItem>('addTask'))
+    )
+  }
+
+  deleteTodoItem(todoItemId: TodoItem | number): Observable<TodoItem>{
+    const id = typeof todoItemId === 'number' ? todoItemId : todoItemId.id
+    const url = `${this.tasksUrl}/${id}`
+    
+    return this.http.delete<TodoItem>(url, httpOptions).pipe(
+      catchError(this.handleError<TodoItem>('deleteTask'))
     )
   }
 
