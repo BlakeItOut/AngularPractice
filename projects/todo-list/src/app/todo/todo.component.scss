@@ -6,88 +6,349 @@
     border: none;
 }
 
-.conf-cont{
-    position:relative;
-    width:100%;
-    height:200px;
-    overflow:hidden;
-    box-sizing: border-box;
-  }
+.ui-content{
+  background:url(https://lh6.googleusercontent.com/-Yc_SQE0WWuY/U-hsFBAh9MI/AAAAAAAA9i4/oYfnGvwydh0/s000/vv.jpg) center 30px;
+  background-size:cover;
+}
+.Confetti{
+  width:50px;
+  height:50px;
+  position:absolute;
+  -webkit-perspective: 600;
+  -webkit-perspective-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+  top:-30px;
+}
+.Confetti div{
+  position:relative;
+  -webkit-transform-origin: 50% 50%;
+  margin:0 auto;
   
-  .confetti{
-    position:absolute;
-    width:12px;
-    height:12px;
-    background-color:#f00;
-    opacity:0.0;
-    box-sizing: border-box;
-    
-    animation-name: fallsway;
-    animation-duration: 5s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    animation-play-state: running;
-      
-    @for $i from 1 through 20 {
-        &:nth-child(#{$i}) {
-          z-index: $i;
-          animation-name: fallsway#{$i};
-          animation-delay: (4 / 20) * $i + s;
-          background-color:rgb(random(255),random(255),random(255));
-        }
-      }
+}
+
+/*position*/
+.pos1{
+  left:8%;
+  -webkit-animation:p1 4s 1.5s infinite linear;
+}
+.pos2{
+  left:28%;
+  -webkit-animation:p2 3s .5s infinite linear;
+}
+.pos3{
+  left:48%;
+  -webkit-animation:p3 4s infinite linear;
+}
+.pos4{
+  left:72%;
+  -webkit-animation:p4 6s 2.5s infinite linear;
+}
+.pos5{
+  left:92%;
+  -webkit-animation:p5 4.5s infinite linear;
+}
+.pos6{
+  left:12%;
+  -webkit-animation:p6 4s 3s infinite linear;
+}
+.pos7{
+  left:32%;
+  -webkit-animation:p7 3s 1.5s infinite linear;
+}
+.pos8{
+  left:60%;
+  -webkit-animation:p8 5s infinite linear;
+}
+.pos9{
+  left:80%;
+  -webkit-animation:p9 6s 2s infinite linear;
+}
+.pos10{
+  left:100%;
+  -webkit-animation:p10 4.5s .5sinfinite linear;
+}
+.pos11{
+  left:20%;
+  -webkit-animation:p11 3s 4.8s infinite linear;
+}
+.pos12{
+  left:24%;
+  -webkit-animation:p12 5s 2.3sinfinite linear;
+}
+.pos13{
+  left:36%;
+  -webkit-animation:p13 4.5s 3.8s infinite linear;
+}
+.pos14{
+  left:84%;
+  -webkit-animation:p14 4s 2.8s infinite linear;
+}
+.pos15{
+  left:60%;
+  -webkit-animation:p15 6s 3.8s infinite linear;
+}
+@-webkit-keyframes p1{
+  to{
+    left:48%;
+    top:90%;
   }
-  
-  @for $i from 1 through 20 {
-    @keyframes fallsway#{$i} {
-    0%{
-      top:-5%;    
-      left:0%+random(95);
-      opacity:1.0;
-      transform:skew(-30deg);
-    }
-    25%{
-      left:100%-random(105);
-      transform:skew(30deg);
-    }
-    50%{
-      left:0%+random(95);
-      transform:skew(-30deg);
-    }
-    75%{
-      left:100%-random(105);
-      transform:skew(30deg);
-    }
-    100% {
-      top:100%;
-      left:0%+random(95);
-      opacity:1.0;
-      transform:skew(-30deg);
-    }
-  }  
+}
+@-webkit-keyframes p2{
+  to{
+    left:-8%;
+    top:90%;
   }
-  
-  @keyframes fallsway {
-    0%{
-      top:-10%;    
-      left:0%+random(95);
-      opacity:1.0;
-    }
-    25%{
-      left:0%+random(95);
-    }
-    50%{
-      left:0%+random(95);
-    }
-    75%{
-      left:0%+random(95);  
-    }
-    100% {
-      top:110%;
-      left:0%+random(95);
-      opacity:1.0;
-    }
+}
+@-webkit-keyframes p3{
+  to{
+    left:128%;
+    top:90%;
   }
+}
+@-webkit-keyframes p4{
+  to{
+    left:20%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p5{
+  to{
+    left:120%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p6{
+  to{
+    left:-24%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p7{
+  to{
+    left:-12%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p8{
+  to{
+    left:36%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p9{
+  to{
+    left:8%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p10{
+  to{
+    left:152%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p11{
+  to{
+    left:4%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p12{
+  to{
+    left:28%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p13{
+  to{
+    left:56%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p14{
+  to{
+    left:84%;
+    top:90%;
+  }
+}
+@-webkit-keyframes p15{
+  to{
+    left:112%;
+    top:90%;
+  }
+}
+
+/*size*/
+.size1 div{
+  width:20px;
+  height:10px;
+}
+.size2 div{
+  width:15px;
+  height:8px;
+}
+.size3 div{
+  width:30px;
+  height:14px;
+}
+.size4 div{
+  width:18px;
+  height:8px;
+}
+.size5 div{
+  width:16px;
+  height:24px;
+}
+.size6 div{
+  width:10px;
+  height:7px;
+}
+.size7 div{
+  width:12px;
+  height:12px;
+}
+.size8 div{
+  width:12px;
+  height:20px;
+}
+.size9 div{
+  width:10px;
+  height:26px;
+}
+.size10 div{
+  width:20px;
+  height:13px;
+}
+
+/*color*/
+.color1 div{
+  background:#0f9;
+}
+.color2 div{
+  background:#09f;
+}
+.color3 div{
+  background:#f30;
+}
+.color4 div{
+  background:#f90;
+}
+.color5 div{
+  background:#f59;
+}
+.color6 div{
+  background:#ff9;
+}
+.color7 div{
+  background:#9ff;
+}
+.color8 div{
+  background:#f9f;
+}
+.color9 div{
+  background:#9f9;
+}
+.color10 div{
+  background:#99f;
+}
+
+
+/*animation*/
+.animate1 div{
+  -webkit-transform:rotateX(0deg) rotateY(60deg);
+  -webkit-animation:c1 2s infinite linear;
+}
+@-webkit-keyframes c1{
+  to{
+    -webkit-transform:rotateX(360deg) rotateY(240deg);
+  }
+}
+
+.animate2 div{
+  -webkit-transform:rotateX(120deg) rotateY(30deg);
+  -webkit-animation:c2 3s infinite linear;
+}
+@-webkit-keyframes c2{
+  to{
+    -webkit-transform:rotateX(480deg) rotateY(210deg);
+  }
+}
+
+.animate3 div{
+  -webkit-transform:rotateZ(0deg) rotateY(0deg);
+  -webkit-animation:c3 3s infinite linear;
+}
+@-webkit-keyframes c3{
+  to{
+    -webkit-transform:rotateZ(180deg) rotateY(1080deg);
+  }
+}
+
+.animate4 div{
+  -webkit-transform:rotateX(0deg) rotateY(0deg);
+  -webkit-animation:c4 2s infinite linear;
+}
+@-webkit-keyframes c4{
+  to{
+    -webkit-transform:rotateX(180deg) rotateY(540deg);
+  }
+}
+
+.animate5 div{
+  -webkit-transform:rotateX(0deg) rotateZ(0deg);
+  -webkit-animation:c5 2.5s infinite linear;
+}
+@-webkit-keyframes c5{
+  to{
+    -webkit-transform:rotateX(-360deg) rotateZ(360deg);
+  }
+}
+.animate6 div{
+  -webkit-transform:rotateX(180deg) rotateY(90deg);
+  -webkit-animation:c6 2s infinite linear;
+}
+@-webkit-keyframes c6{
+  to{
+    -webkit-transform:rotateX(360deg) rotateY(270deg);
+  }
+}
+
+.animate7 div{
+  -webkit-transform:rotateX(0deg) rotateY(30deg);
+  -webkit-animation:c7 3s infinite linear;
+}
+@-webkit-keyframes c7{
+  to{
+    -webkit-transform:rotateX(360deg) rotateY(210deg);
+  }
+}
+
+.animate8 div{
+  -webkit-transform:rotateZ(0deg) rotateY(0deg);
+  -webkit-animation:c8 3.5s infinite linear;
+}
+@-webkit-keyframes c8{
+  to{
+    -webkit-transform:rotateZ(1080deg) rotateY(1080deg);
+  }
+}
+
+.animate9 div{
+  -webkit-transform:rotateX(0deg) rotateY(0deg);
+  -webkit-animation:c9 3s infinite linear;
+}
+@-webkit-keyframes c9{
+  to{
+    -webkit-transform:rotateX(540deg) rotateY(540deg);
+  }
+}
+
+.animate10 div{
+  -webkit-transform:rotateX(0deg) rotateZ(0deg);
+  -webkit-animation:c10 3.5s infinite linear;
+}
+@-webkit-keyframes c10{
+  to{
+    -webkit-transform:rotateX(-360deg) rotateZ(360deg);
+  }
+}

@@ -1,5 +1,5 @@
 export class TodoItem {
-    id?: number;
+    id: number;
     task: string;
     completed: boolean = false;
 }

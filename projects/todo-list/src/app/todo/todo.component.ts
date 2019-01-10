@@ -31,11 +31,7 @@ export class TodoComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    var task: TodoItem = {
-      task: name,
-      completed: false
-    }
-    this.taskRunnerService.addTodoItem(task)
+    this.taskRunnerService.addTodoItem({task: name, completed: false} as TodoItem)
       .subscribe(t => {
         this.todoItems.push(t);
       })

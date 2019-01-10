@@ -11,25 +11,52 @@
 </ol>
 <input #taskName (keyup.enter)="add(taskName.value); taskName.value=''"placeholder="Add your to do" class="form-control mt-3 mb-2">
 <button (click)="add(taskName.value); taskName.value=''" type="button" class="btn btn-success btn-block">Add</button>
-<div *ngIf="allComplete" class="conf-cont mt-4">
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
+<div *ngIf="allComplete" class="mt-4" is="page" id="home" data-role="page">
+  <div is="content" role="main" class="ui-content">
+    <div is="dragable" class="Confetti pos1 color1 size1 animate1">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos2 color2 size2 animate2">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos3 color3 size3 animate3">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos4 color4 size4 animate4">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos5 color5 size5 animate5">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos6 color6 size6 animate6">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos7 color7 size7 animate7">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos8 color8 size8 animate8">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos9 color9 size9 animate9">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos10 color10 size10 animate10">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos11 color2 size1 animate3">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos12 color4 size3 animate4">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos13 color6 size5 animate5">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos14 color8 size7 animate6">
+      <div is="dragable"></div>
+    </div>
+    <div is="dragable" class="Confetti pos15 color10 size9 animate7">
+      <div is="dragable"></div>
+    </div>
+  </div>
 </div>
