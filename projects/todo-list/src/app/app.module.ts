@@ -4,12 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
+import { DetailsComponent } from './details/details.component';
+
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
-import { DetailsComponent } from './details/details.component';
+import { SparkCoreAngularModule } from '@sparkdesignsystem/spark-core-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { DetailsComponent } from './details/details.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    SparkCoreAngularModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
