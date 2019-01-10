@@ -19,7 +19,8 @@ export class TodoComponent implements OnInit {
   allComplete: boolean
 
   complete(todoItem: TodoItem): void {
-    this.taskRunnerService.completeTodoItem(todoItem).subscribe()
+    todoItem.completed = true
+    this.taskRunnerService.updateTodoItem(todoItem).subscribe()
     // this.todoItems.find(t => t == todoItem).completed = true;
     this.allComplete = this.todoItems.find(t => t.completed !== true) == undefined
   }

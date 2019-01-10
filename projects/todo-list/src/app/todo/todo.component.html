@@ -3,10 +3,15 @@
 <input [(ngModel)]="searchText" placeholder="Filter your to-dos" class="form-control mb-3">
 <ol class="list-group">
   <li *ngFor="let TodoItem of todoItems | filter : searchText; index as i" [ngClass]="TodoItem.completed ? 'complete' : ''" class="list-group-item">{{i+1}}. 
-    <button *ngIf="!TodoItem.completed" (click)="complete(TodoItem)" type="button" class="btn btn-sm btn-outline-success mr-2">Complete</button>{{TodoItem.task}}<button type="button" class="float-right close" title="delete task"
+    <button *ngIf="!TodoItem.completed" (click)="complete(TodoItem)" type="button" class="btn btn-sm btn-outline-success mr-2">Complete</button>
+    {{TodoItem.task}}
+    <button type="button" class="float-right close" title="delete task"
     (click)="delete(TodoItem)">
       <span aria-hidden="true">&times;</span>
     </button>
+    <a class="float-right close" title="edit task" routerLink="/details/{{TodoItem.id}}">
+      <i class="material-icons">edit</i>
+    </a>
   </li>
 </ol>
 <input #taskName (keyup.enter)="add(taskName.value); taskName.value=''"placeholder="Add your to do" class="form-control mt-3 mb-2">

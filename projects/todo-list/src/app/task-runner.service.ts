@@ -18,12 +18,19 @@ export class TaskRunnerService {
     )
   }
 
-  completeTodoItem(todoItem: TodoItem): Observable<any> {
-    todoItem.completed = true
+  getTodoItem(id: number): Observable<TodoItem>{
+    return this.http.get<TodoItem>(`${this.tasksUrl}/${id}`).pipe(
+      catchError(this.handleError<TodoItem>(`getTask id=${id}`))
+    )
+  }
+
+  updateTodoItem(todoItem: TodoItem): Observable<any> {
     return this.http.put(this.tasksUrl, todoItem, httpOptions).pipe(
       catchError(this.handleError<TodoItem[]>('completeTask'))
     )
   }
+
+
 
   addTodoItem (todoItem: TodoItem): Observable<TodoItem> {
     return this.http.post<TodoItem>(this.tasksUrl, todoItem, httpOptions).pipe(
